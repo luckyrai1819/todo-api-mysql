@@ -1,9 +1,12 @@
-import { Request,Response,NextFunction } from "express"
+import { Request, Response, NextFunction } from "express";
 
-const errorHandlerMiddleware=(err:Error,req:Request,res:Response,next:NextFunction)=>{
+const errorHandlerMiddleware = (
+  err: Error,
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  res.status(500).json(err.message);
+};
 
-    res.status(500).json(err.message);
-}
-
-
-module.exports=errorHandlerMiddleware;
+module.exports = errorHandlerMiddleware;
