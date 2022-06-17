@@ -18,7 +18,7 @@ const createTask = async (req: Request, res: Response) => {
 };
 
 const getAllTasks = async (req: Request, res: Response) => {
-  let { size = 10, start = 0 } = req.query;
+  const { size = 10, start = 0 } = req.query;
 
   const sql = `select * from tasks limit ?,?`;
 
