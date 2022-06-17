@@ -34,13 +34,11 @@ describe("test get all tasks", () => {
 describe("test get single task", () => {
   test("correct response", async () => {
     const res = await request(app).get("/tasks/5");
-    //console.log(res.body);
     expect(res.body).toEqual([{ id: 5, name: "task2", status: "pending" }]);
   });
 
   test("no task present", async () => {
     const res = await request(app).get("/tasks/100");
-    //console.log(res.body);
     expect(res.status).toBe(404);
     expect(res.text).toBe("no task with id: 100");
   });
@@ -51,7 +49,6 @@ describe("test update task", () => {
     const res = await request(app).put("/tasks/3").send({
       status: "completed",
     });
-    //console.log(res.body);
     expect(res.status).toBe(200);
     expect(res.body).toBe("task updated");
   });
@@ -68,7 +65,6 @@ describe("test update task", () => {
 describe("test delete task", () => {
   test("correct response", async () => {
     const res = await request(app).delete("/tasks/8");
-    //console.log(res.body);
     expect(res.status).toBe(200);
     expect(res.body).toBe("Task Deleted");
   });
