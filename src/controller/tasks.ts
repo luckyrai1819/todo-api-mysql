@@ -11,7 +11,7 @@ const createTask = async (req: Request, res: Response) => {
       if (err) {
         res.status(400).send(err);
       } else {
-        res.status(200).json(result);
+        res.status(200).json(req.body);
       }
     }
   );
@@ -58,7 +58,7 @@ const updateTask = async (req: Request, res: Response) => {
     if (err) {
       res.status(400).send(err);
     } else {
-      res.status(200).json(result);
+      res.status(200).json("task updated");
     }
   });
 };
@@ -69,7 +69,7 @@ const deleteTask = async (req: Request, res: Response) => {
     if (err) {
       res.status(400).send(err);
     } else {
-      res.status(200).json(result);
+      res.status(200).json("Task Deleted");
     }
   });
 };
